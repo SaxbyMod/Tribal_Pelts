@@ -1,0 +1,15 @@
+C:\Users\Thinc\Source\Repos\InscryptionExampleMod\bin\Debug\netstandard2.0\TribalPelts.deps.json
+C:\Users\Thinc\Source\Repos\InscryptionExampleMod\bin\Debug\netstandard2.0\TribalPelts.dll
+C:\Users\Thinc\Source\Repos\InscryptionExampleMod\bin\Debug\netstandard2.0\TribalPelts.pdb
+C:\Users\Thinc\Source\Repos\InscryptionExampleMod\bin\Debug\netstandard2.0\ATribalLibary.dll
+C:\Users\Thinc\Source\Repos\InscryptionExampleMod\bin\Debug\netstandard2.0\InscryptionAPI.dll
+C:\Users\Thinc\Source\Repos\InscryptionExampleMod\bin\Debug\netstandard2.0\InscryptionCommunityPatch.dll
+C:\Users\Thinc\Source\Repos\InscryptionExampleMod\obj\Debug\netstandard2.0\ExampleMod.csproj.AssemblyReference.cache
+C:\Users\Thinc\Source\Repos\InscryptionExampleMod\obj\Debug\netstandard2.0\PluginInfo.cs
+C:\Users\Thinc\Source\Repos\InscryptionExampleMod\obj\Debug\netstandard2.0\ExampleMod.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Thinc\Source\Repos\InscryptionExampleMod\obj\Debug\netstandard2.0\ExampleMod.AssemblyInfoInputs.cache
+C:\Users\Thinc\Source\Repos\InscryptionExampleMod\obj\Debug\netstandard2.0\ExampleMod.AssemblyInfo.cs
+C:\Users\Thinc\Source\Repos\InscryptionExampleMod\obj\Debug\netstandard2.0\ExampleMod.csproj.CoreCompileInputs.cache
+C:\Users\Thinc\Source\Repos\InscryptionExampleMod\obj\Debug\netstandard2.0\ExampleMod.csproj.CopyComplete
+C:\Users\Thinc\Source\Repos\InscryptionExampleMod\obj\Debug\netstandard2.0\TribalPelts.dll
+C:\Users\Thinc\Source\Repos\InscryptionExampleMod\obj\Debug\netstandard2.0\TribalPelts.pdb
