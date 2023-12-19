@@ -12,6 +12,15 @@ namespace ExampleMod
 {
     [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
     [BepInDependency("cyantist.inscryption.api", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency(JGUID, BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency(LGUID, BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency(TGUID, BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency(NGUID, BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency(ZGUID, BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency(VGUID, BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency(WGUID, BepInDependency.DependencyFlags.SoftDependency)]
+    // [BepInDependency("cyantist.inscryption.api", BepInDependency.DependencyFlags.SoftDependency)] ADD MK Tribes
+
     public class Plugin : BaseUnityPlugin
     {
         // --------------------------------------------------------------------------------------------------------------------------------------------------
@@ -24,6 +33,14 @@ namespace ExampleMod
         private const string PluginName = "TribalPelts";
         private const string PluginVersion = "1.0.0";
         private const string PluginPrefix = "TribalPelts";
+        public const string TGUID = "tribes.libary";
+        public const string NGUID = "nevernamed.inscryption.sigils";
+        public const string ZGUID = "zepht.inscryption.ZephtPvZ";
+        public const string VGUID = "extraVoid.inscryption.VerminTribe";
+        public const string JGUID = "MADH.inscryption.JSONLoader";
+        public const string WGUID = "whistlewind.inscryption.abnormalsigils";
+        public const string LGUID = "Lily.BOT";
+
 
         // For some things, like challenge icons, we need to add the art now instead of later.
         // We initialize the list here, in Awake() we'll add the sprites themselves.
@@ -65,7 +82,7 @@ namespace ExampleMod
             {
                 CardInfo info = CreateCard("Raven Epidermis", "Avian_Pelt.png", 0, 2, Tribe.Bird);
 
-                PeltManager.New(Plugin.PluginGuid, info, 5, 0, 8,
+                PeltManager.New(Plugin.PluginGuid, info, 5, 0, 4,
                     () =>
                     {
                         return CardManager.AllCardsCopy.FindAll((a) =>
@@ -78,7 +95,7 @@ namespace ExampleMod
             {
                 CardInfo info = CreateCard("Coyote Pelt", "Canine_Pelt.png", 0, 2, Tribe.Canine);
 
-                PeltManager.New(Plugin.PluginGuid, info, 5, 0, 8,
+                PeltManager.New(Plugin.PluginGuid, info, 5, 0, 4,
                     () =>
                     {
                         return CardManager.AllCardsCopy.FindAll((a) =>
@@ -91,7 +108,7 @@ namespace ExampleMod
             {
                 CardInfo info = CreateCard("Moth Molt", "Insect_Pelt.png", 0, 2, Tribe.Insect);
 
-                PeltManager.New(Plugin.PluginGuid, info, 5, 0, 8,
+                PeltManager.New(Plugin.PluginGuid, info, 5, 0, 4,
                     () =>
                     {
                         return CardManager.AllCardsCopy.FindAll((a) =>
@@ -104,7 +121,7 @@ namespace ExampleMod
             {
                 CardInfo info = CreateCard("Deer Pelt", "Deer_Pelt.png", 0, 2, Tribe.Hooved);
 
-                PeltManager.New(Plugin.PluginGuid, info, 5, 0, 8,
+                PeltManager.New(Plugin.PluginGuid, info, 5, 0, 4,
                     () =>
                     {
                         return CardManager.AllCardsCopy.FindAll((a) =>
@@ -117,7 +134,7 @@ namespace ExampleMod
             {
                 CardInfo info = CreateCard("Crocodile Hide", "Reptile_Pelt.png", 0, 2, Tribe.Reptile);
 
-                PeltManager.New(Plugin.PluginGuid, info, 5, 0, 8,
+                PeltManager.New(Plugin.PluginGuid, info, 5, 0, 4,
                     () =>
                     {
                         return CardManager.AllCardsCopy.FindAll((a) =>
@@ -126,6 +143,38 @@ namespace ExampleMod
                 );
             }
             i++;
+
+            if (BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey(TGUID))
+            {
+                Logger.LogMessage("Do I see The other DLL? I do, I do see the other DLL! (Tribal Libary)");
+            }
+            else if (BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey(JGUID))
+            {
+                Logger.LogMessage("Do I see The other DLL? I do, I do see the other DLL! (JSON Loader [Likely for Prof. Eggnogs LFTD Tribes])");
+            }
+            else if (BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey(NGUID))
+            {
+                Logger.LogMessage("Do I see The other DLL? I do, I do see the other DLL! (Nevernameds Sigilarium)");
+            }
+            else if (BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey(ZGUID))
+            {
+                Logger.LogMessage("Do I see The other DLL? I do, I do see the other DLL! (Plants Vs Zombies)");
+            }
+            else if (BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey(VGUID))
+            {
+                Logger.LogMessage("Do I see The other DLL? I do, I do see the other DLL! (Vermin Tribe)");
+            }
+            else if (BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey(WGUID))
+            {
+                Logger.LogMessage("Do I see The other DLL? I do, I do see the other DLL! (Abnormal Sigils)");
+            }
+            else if (BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey(LGUID))
+            {
+                Logger.LogMessage("Do I see The other DLL? I do, I do see the other DLL! (Bundle O' Totems)");
+            } else
+            {
+                Logger.LogMessage("I See no extension DLL's applying Zero Expansions.");
+            }
             Logger.LogInfo($"Sucsessfully Loaded {i} Pelt(s)!");
         }
     }

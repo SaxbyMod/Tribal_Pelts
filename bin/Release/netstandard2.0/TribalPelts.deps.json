@@ -16,9 +16,15 @@
           "Inscryption.GameLibs": "1.9.0-r.0",
           "NETStandard.Library": "2.0.3",
           "UnityEngine.Modules": "2019.4.24",
-          "ATribalLibary": "1.14.0.0",
-          "InscryptionAPI": "2.14.0.0",
-          "InscryptionCommunityPatch": "2.11.0.0"
+          "ATribalLibary": "2.0.0.0",
+          "Bundle_Of_Totems": "1.0.0.0",
+          "InscryptionAPI": "2.18.7.0",
+          "InscryptionCommunityPatch": "2.11.0.0",
+          "JSONLoader": "2.0.0.0",
+          "NevernamedsSigils": "1.0.0.0",
+          "VerminTribe": "1.0.0.0",
+          "WhistleWind.AbnormalSigils": "1.0.2.0",
+          "ZephtPvZ": "1.0.0.0"
         },
         "runtime": {
           "TribalPelts.dll": {}
@@ -426,19 +432,27 @@
         }
       },
       "UnityEngine.Modules/2019.4.24": {},
-      "ATribalLibary/1.14.0.0": {
+      "ATribalLibary/2.0.0.0": {
         "runtime": {
           "ATribalLibary.dll": {
-            "assemblyVersion": "1.14.0.0",
-            "fileVersion": "1.14.0.0"
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
           }
         }
       },
-      "InscryptionAPI/2.14.0.0": {
+      "Bundle_Of_Totems/1.0.0.0": {
+        "runtime": {
+          "Bundle_Of_Totems.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "InscryptionAPI/2.18.7.0": {
         "runtime": {
           "InscryptionAPI.dll": {
-            "assemblyVersion": "2.14.0.0",
-            "fileVersion": "2.14.0.0"
+            "assemblyVersion": "2.18.7.0",
+            "fileVersion": "2.18.7.0"
           }
         }
       },
@@ -447,6 +461,46 @@
           "InscryptionCommunityPatch.dll": {
             "assemblyVersion": "2.11.0.0",
             "fileVersion": "2.11.0.0"
+          }
+        }
+      },
+      "JSONLoader/2.0.0.0": {
+        "runtime": {
+          "JSONLoader.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
+          }
+        }
+      },
+      "NevernamedsSigils/1.0.0.0": {
+        "runtime": {
+          "NevernamedsSigils.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "VerminTribe/1.0.0.0": {
+        "runtime": {
+          "VerminTribe.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "WhistleWind.AbnormalSigils/1.0.2.0": {
+        "runtime": {
+          "WhistleWind.AbnormalSigils.dll": {
+            "assemblyVersion": "1.0.2.0",
+            "fileVersion": "1.0.2.0"
+          }
+        }
+      },
+      "ZephtPvZ/1.0.0.0": {
+        "runtime": {
+          "ZephtPvZ.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
           }
         }
       }
@@ -745,17 +799,47 @@
       "path": "unityengine.modules/2019.4.24",
       "hashPath": "unityengine.modules.2019.4.24.nupkg.sha512"
     },
-    "ATribalLibary/1.14.0.0": {
+    "ATribalLibary/2.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
-    "InscryptionAPI/2.14.0.0": {
+    "Bundle_Of_Totems/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "InscryptionAPI/2.18.7.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
     "InscryptionCommunityPatch/2.11.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "JSONLoader/2.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NevernamedsSigils/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "VerminTribe/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "WhistleWind.AbnormalSigils/1.0.2.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ZephtPvZ/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

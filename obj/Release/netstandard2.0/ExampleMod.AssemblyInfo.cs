@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("A Libary of TribalPelts")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+11e99ce2a22d390cf2424bbf5828341360a5237f")]
 [assembly: System.Reflection.AssemblyProductAttribute("TribalPelts")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TribalPelts")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

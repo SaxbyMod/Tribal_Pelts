@@ -26,14 +26,32 @@
     <Reference Include="ATribalLibary">
       <HintPath>lib\ATribalLibary.dll</HintPath>
     </Reference>
+    <Reference Include="Bundle_Of_Totems">
+      <HintPath>lib\Bundle_Of_Totems.dll</HintPath>
+    </Reference>
     <Reference Include="InscryptionAPI">
       <HintPath>lib\InscryptionAPI.dll</HintPath>
     </Reference>
     <Reference Include="InscryptionCommunityPatch">
       <HintPath>lib\InscryptionCommunityPatch.dll</HintPath>
     </Reference>
+    <Reference Include="JSONLoader">
+      <HintPath>lib\JSONLoader.dll</HintPath>
+    </Reference>
+    <Reference Include="NevernamedsSigils">
+      <HintPath>lib\NevernamedsSigils.dll</HintPath>
+    </Reference>
     <Reference Include="Sirenix.Serialization">
       <HintPath>lib\Sirenix.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="VerminTribe">
+      <HintPath>lib\VerminTribe.dll</HintPath>
+    </Reference>
+    <Reference Include="WhistleWind.AbnormalSigils">
+      <HintPath>lib\WhistleWind.AbnormalSigils.dll</HintPath>
+    </Reference>
+    <Reference Include="ZephtPvZ">
+      <HintPath>lib\ZephtPvZ.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>

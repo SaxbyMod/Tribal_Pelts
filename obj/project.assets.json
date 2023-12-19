@@ -2885,14 +2885,14 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Thinc\\Source\\Repos\\InscryptionExampleMod\\ExampleMod.csproj",
+      "projectUniqueName": "C:\\Users\\Thinc\\Source\\Repos\\Tribal_Pelts\\ExampleMod.csproj",
       "projectName": "TribalPelts",
-      "projectPath": "C:\\Users\\Thinc\\Source\\Repos\\InscryptionExampleMod\\ExampleMod.csproj",
+      "projectPath": "C:\\Users\\Thinc\\Source\\Repos\\Tribal_Pelts\\ExampleMod.csproj",
       "packagesPath": "C:\\Users\\Thinc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Thinc\\Source\\Repos\\InscryptionExampleMod\\obj\\",
+      "outputPath": "C:\\Users\\Thinc\\Source\\Repos\\Tribal_Pelts\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Thinc\\Source\\Repos\\InscryptionExampleMod\\NuGet.Config",
+        "C:\\Users\\Thinc\\Source\\Repos\\Tribal_Pelts\\NuGet.Config",
         "C:\\Users\\Thinc\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
@@ -2964,7 +2964,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }
