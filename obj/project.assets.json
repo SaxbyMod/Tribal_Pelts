@@ -2885,9 +2885,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Thinc\\Source\\Repos\\Tribal_Pelts\\ExampleMod.csproj",
+      "projectUniqueName": "C:\\Users\\Thinc\\Source\\Repos\\Tribal_Pelts\\Tribal Pelts.csproj",
       "projectName": "TribalPelts",
-      "projectPath": "C:\\Users\\Thinc\\Source\\Repos\\Tribal_Pelts\\ExampleMod.csproj",
+      "projectPath": "C:\\Users\\Thinc\\Source\\Repos\\Tribal_Pelts\\Tribal Pelts.csproj",
       "packagesPath": "C:\\Users\\Thinc\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Thinc\\Source\\Repos\\Tribal_Pelts\\obj\\",
       "projectStyle": "PackageReference",

@@ -1,4 +1,4 @@
-namespace ExampleMod
+namespace Tribal_Pelts
 {
     public static class PluginInfo
     {

@@ -1,0 +1,57 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>TribalPelts</AssemblyName>
+    <Description>A Libary of TribalPelts</Description>
+    <Version>1.0.0</Version>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>Latest</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BepInEx-MonoMod_Loader_Inscryption" Version="1.0.0" />
+    <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
+    <PackageReference Include="BepInEx.Core" Version="5.*" />
+    <PackageReference Include="BepInEx.PluginInfoProps" Version="1.*" />
+    <PackageReference Include="UnityEngine.Modules" Version="2019.4.24" IncludeAssets="compile" />
+    <PackageReference Include="Inscryption.GameLibs" Version="1.9.0-r.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ATribalLibary">
+      <HintPath>lib\ATribalLibary.dll</HintPath>
+    </Reference>
+    <Reference Include="Bundle_Of_Totems">
+      <HintPath>lib\Bundle_Of_Totems.dll</HintPath>
+    </Reference>
+    <Reference Include="InscryptionAPI">
+      <HintPath>lib\InscryptionAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="InscryptionCommunityPatch">
+      <HintPath>lib\InscryptionCommunityPatch.dll</HintPath>
+    </Reference>
+    <Reference Include="JSONLoader">
+      <HintPath>lib\JSONLoader.dll</HintPath>
+    </Reference>
+    <Reference Include="NevernamedsSigils">
+      <HintPath>lib\NevernamedsSigils.dll</HintPath>
+    </Reference>
+    <Reference Include="Sirenix.Serialization">
+      <HintPath>lib\Sirenix.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="VerminTribe">
+      <HintPath>lib\VerminTribe.dll</HintPath>
+    </Reference>
+    <Reference Include="WhistleWind.AbnormalSigils">
+      <HintPath>lib\WhistleWind.AbnormalSigils.dll</HintPath>
+    </Reference>
+    <Reference Include="ZephtPvZ">
+      <HintPath>lib\ZephtPvZ.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
