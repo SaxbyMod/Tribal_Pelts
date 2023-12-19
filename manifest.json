@@ -1,10 +1,12 @@
 {
-    "name": "ExampleMod",
-    "version_number": "2.0",
-    "website_url": "https://github.com/ScottWilson0903/InscryptionExampleMod",
-    "description": "This plugin is a BepInEx plugin made for Inscryption to provide various examples for the API by Cyantist.",
-    "dependencies": [
-        "BepInEx-BepInExPack_Inscryption-5.4.1701",
-        "InscryptionAPI-API-1.13.0"
-    ]
+  "name": "Tribal_Pelts",
+  "version_number": "1.1.0",
+  "website_url": "https://github.com/SaxbyMod/The-Unwanted-Libarrys",
+  "description": "Adds 5 Pelts themed around tribes.",
+  "dependencies": [
+    "BepInEx-BepInExPack_Inscryption-5.4.1901",
+    "BepInEx-MonoMod_Loader_Inscryption-1.0.0",
+    "API_dev-API-2.13.0"
+  ]
 }
+  
