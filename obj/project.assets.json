@@ -2883,16 +2883,16 @@
     "C:\\Users\\Thinc\\.nuget\\packages\\": {}
   },
   "project": {
-    "version": "1.0.0",
+    "version": "2.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Thinc\\Source\\Repos\\Tribal_Pelts\\Tribal Pelts.csproj",
+      "projectUniqueName": "C:\\Users\\Thinc\\source\\repos\\Tribal_Pelts\\Tribal Pelts.csproj",
       "projectName": "TribalPelts",
-      "projectPath": "C:\\Users\\Thinc\\Source\\Repos\\Tribal_Pelts\\Tribal Pelts.csproj",
+      "projectPath": "C:\\Users\\Thinc\\source\\repos\\Tribal_Pelts\\Tribal Pelts.csproj",
       "packagesPath": "C:\\Users\\Thinc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Thinc\\Source\\Repos\\Tribal_Pelts\\obj\\",
+      "outputPath": "C:\\Users\\Thinc\\source\\repos\\Tribal_Pelts\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Thinc\\Source\\Repos\\Tribal_Pelts\\NuGet.Config",
+        "C:\\Users\\Thinc\\source\\repos\\Tribal_Pelts\\NuGet.Config",
         "C:\\Users\\Thinc\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
