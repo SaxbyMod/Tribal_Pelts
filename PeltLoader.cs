@@ -2,8 +2,10 @@ using BepInEx;
 using DiskCardGame;
 using HarmonyLib;
 using InscryptionAPI.Card;
+using InscryptionAPI.Guid;
 using InscryptionAPI.Helpers;
 using InscryptionAPI.Pelts;
+using JSONLoader.API;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -29,7 +31,7 @@ namespace Tribal_Pelts
         // --------------------------------------------------------------------------------------------------------------------------------------------------
 
         // Declare Harmony here for future Harmony patches. You'll use Harmony to patch the game's code outside of the scope of the API.
-        Harmony harmony = new Harmony(PluginGuid);
+        readonly Harmony harmony = new(PluginGuid);
 
         // These are variables that exist everywhere in the entire class.
         private const string PluginGuid = "creator.TribalPelts";
@@ -68,6 +70,11 @@ namespace Tribal_Pelts
             return info;
         }
 
+        public static Tribe GetCustomTribe(string GUID, string name)
+        {
+            return GuidManager.GetEnumValue<Tribe>(GUID, name);
+        }
+
         // Code for Everything:
         public void Awake()
         {
@@ -81,7 +88,7 @@ namespace Tribal_Pelts
             {
                 CardInfo info = CreateCard("Raven Epidermis", "Avian_Pelt.png", "none.png", 0, 2, Tribe.Bird);
 
-                PeltManager.New(PluginGuid, info, 5, 0, 4,
+                PeltManager.New(PluginGuid, info, 6, 0, 4,
                     () =>
                     {
                         return CardManager.AllCardsCopy.FindAll((a) =>
@@ -94,7 +101,7 @@ namespace Tribal_Pelts
             {
                 CardInfo info = CreateCard("Coyote Pelt", "Canine_Pelt.png", "none.png", 0, 2, Tribe.Canine);
 
-                PeltManager.New(PluginGuid, info, 5, 0, 4,
+                PeltManager.New(PluginGuid, info, 6, 0, 4,
                     () =>
                     {
                         return CardManager.AllCardsCopy.FindAll((a) =>
@@ -107,7 +114,7 @@ namespace Tribal_Pelts
             {
                 CardInfo info = CreateCard("Moth Molt", "Insect_Pelt.png", "none.png", 0, 2, Tribe.Insect);
 
-                PeltManager.New(PluginGuid, info, 5, 0, 4,
+                PeltManager.New(PluginGuid, info, 6, 0, 4,
                     () =>
                     {
                         return CardManager.AllCardsCopy.FindAll((a) =>
@@ -120,7 +127,7 @@ namespace Tribal_Pelts
             {
                 CardInfo info = CreateCard("Deer Pelt", "Deer_Pelt.png", "none.png", 0, 2, Tribe.Hooved);
 
-                PeltManager.New(PluginGuid, info, 5, 0, 4,
+                PeltManager.New(PluginGuid, info, 6, 0, 4,
                     () =>
                     {
                         return CardManager.AllCardsCopy.FindAll((a) =>
@@ -133,7 +140,7 @@ namespace Tribal_Pelts
             {
                 CardInfo info = CreateCard("Crocodile Hide", "Reptile_Pelt.png", "none.png", 0, 2, Tribe.Reptile);
 
-                PeltManager.New(PluginGuid, info, 5, 0, 4,
+                PeltManager.New(PluginGuid, info, 6, 0, 4,
                     () =>
                     {
                         return CardManager.AllCardsCopy.FindAll((a) =>
@@ -149,7 +156,12 @@ namespace Tribal_Pelts
             }
             if (BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey(JGUID))
             {
-                Logger.LogMessage("Do I see The other DLL? I do, I do see the other DLL! (JSON Loader [Likely for Prof. Eggnogs LFTD Tribes])");
+                Logger.LogMessage("Do I see The other DLL? I do, I do see the other DLL! (JSON Loader)");
+                if (GetCustomTribe("LFTD.tribe", "Feline") != null)
+                {
+                    Logger.LogMessage("Do I See LFTD Tribes? I do, I do see LFTD Tribes! (LFTD Tribes)");
+                    LFTDTribes();
+                }
             }
             if (BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey(NGUID))
             {
@@ -170,13 +182,112 @@ namespace Tribal_Pelts
             if (BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey(LGUID))
             {
                 Logger.LogMessage("Do I see The other DLL? I do, I do see the other DLL! (Bundle O' Totems)");
+                BundleOTotems();
             }
             if (BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey(MGUID))
             {
                 Logger.LogMessage("Do I see The other DLL? I do, I do see the other DLL! (Mushroom Tribes)");
                 MushroomTribesPelts();
             }
+            else
+            {
+                Logger.LogMessage("Do I see the Other DLL? I dont, I dont see any other DLLs!");
+            }
             Logger.LogMessage($"Successfully Loaded {Count} Pelt(s)!");
+        }
+
+        public void BundleOTotems()
+        {
+            HumanRemains();
+            SharkLeather();
+            TigerPelt();
+
+            static void HumanRemains()
+            {
+                CardInfo info = CreateCard("Human Remains [BOT]", "Human Remains.png", "None.png", 0, 2, GetCustomTribe(LGUID, "undead"));
+
+                PeltManager.New(PeltLoader.PluginGuid, info, 6, 0, 4,
+                    () =>
+                    {
+                        return CardManager.AllCardsCopy.FindAll((a) =>
+                        a.IsOfTribe(GetCustomTribe(LGUID, "undead")) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
+                    }
+                );
+            }
+            Count++;
+            static void SharkLeather()
+            {
+                CardInfo info = CreateCard("Shark Leather [BOT]", "Shark Leather.png", "None.png", 0, 2, GetCustomTribe(LGUID, "aquatic"));
+
+                PeltManager.New(PeltLoader.PluginGuid, info, 6, 0, 4,
+                    () =>
+                    {
+                        return CardManager.AllCardsCopy.FindAll((a) =>
+                        a.IsOfTribe(GetCustomTribe(LGUID, "aquatic")) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
+                    }
+                );
+            }
+            Count++;
+            static void TigerPelt()
+            {
+                CardInfo info = CreateCard("Tiger Pelt [BOT]", "Tiger Pelt.png", "None.png", 0, 2, GetCustomTribe(LGUID, "feline"));
+
+                PeltManager.New(PeltLoader.PluginGuid, info, 6, 0, 4,
+                    () =>
+                    {
+                        return CardManager.AllCardsCopy.FindAll((a) =>
+                        a.IsOfTribe(GetCustomTribe(LGUID, "feline")) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
+                    }
+                );
+            }
+            Count++;
+        }
+
+        public void LFTDTribes()
+        {
+            HumanRemains();
+            SharkLeather();
+            TigerPelt();
+
+            static void HumanRemains()
+            {
+                CardInfo info = CreateCard("Human Remains [LFTD]", "Human Remains.png", "None.png", 0, 2, GetCustomTribe("LFTD.tribe", "Undead"));
+
+                PeltManager.New(PeltLoader.PluginGuid, info, 6, 0, 4,
+                    () =>
+                    {
+                        return CardManager.AllCardsCopy.FindAll((a) =>
+                        a.IsOfTribe(GetCustomTribe("LFTD.tribe", "Undead")) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
+                    }
+                );
+            }
+            Count++;
+            static void SharkLeather()
+            {
+                CardInfo info = CreateCard("Shark Leather [LFTD]", "Shark Leather.png", "None.png", 0, 2, GetCustomTribe("LFTD.tribe", "Shark"));
+
+                PeltManager.New(PeltLoader.PluginGuid, info, 6, 0, 4,
+                    () =>
+                    {
+                        return CardManager.AllCardsCopy.FindAll((a) =>
+                        a.IsOfTribe(GetCustomTribe("LFTD.tribe", "Shark")) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
+                    }
+                );
+            }
+            Count++;
+            static void TigerPelt()
+            {
+                CardInfo info = CreateCard("Tiger Pelt [LFTD]", "Tiger Pelt.png", "None.png", 0, 2, GetCustomTribe("LFTD.tribe", "Feline"));
+
+                PeltManager.New(PeltLoader.PluginGuid, info, 6, 0, 4,
+                    () =>
+                    {
+                        return CardManager.AllCardsCopy.FindAll((a) =>
+                        a.IsOfTribe(GetCustomTribe("LFTD.tribe", "Feline")) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
+                    }
+                );
+            }
+            Count++;
         }
 
         public void MushroomTribesPelts()
@@ -216,7 +327,7 @@ namespace Tribal_Pelts
             {
                 CardInfo info = CreateCard("Blaster Pelt", "Blaster Pelt.png", "Blaster Pelt_e.png", 0, 2, MushroomTribes.MushroomTribes.blasterTribe);
 
-                PeltManager.New(PeltLoader.PluginGuid, info, 5, 0, 4,
+                PeltManager.New(PeltLoader.PluginGuid, info, 6, 0, 4,
                     () =>
                     {
                         return CardManager.AllCardsCopy.FindAll((a) =>
@@ -229,7 +340,7 @@ namespace Tribal_Pelts
             {
                 CardInfo info = CreateCard("Block Pelt", "Block Pelt.png", "Block Pelt_e.png", 0, 2, MushroomTribes.MushroomTribes.blockTribe);
 
-                PeltManager.New(PeltLoader.PluginGuid, info, 5, 0, 4,
+                PeltManager.New(PeltLoader.PluginGuid, info, 6, 0, 4,
                     () =>
                     {
                         return CardManager.AllCardsCopy.FindAll((a) =>
@@ -242,7 +353,7 @@ namespace Tribal_Pelts
             {
                 CardInfo info = CreateCard("Blooper Pelt", "Blooper Pelt.png", "Blooper Pelt_e.png", 0, 2, MushroomTribes.MushroomTribes.blooperTribe);
 
-                PeltManager.New(PeltLoader.PluginGuid, info, 5, 0, 4,
+                PeltManager.New(PeltLoader.PluginGuid, info, 6, 0, 4,
                     () =>
                     {
                         return CardManager.AllCardsCopy.FindAll((a) =>
@@ -255,7 +366,7 @@ namespace Tribal_Pelts
             {
                 CardInfo info = CreateCard("Bob-Omb Pelt", "Bob-Omb Pelt.png", "Bob-Omb Pelt_e.png", 0, 2, MushroomTribes.MushroomTribes.bombombTribe);
 
-                PeltManager.New(PeltLoader.PluginGuid, info, 5, 0, 4,
+                PeltManager.New(PeltLoader.PluginGuid, info, 6, 0, 4,
                     () =>
                     {
                         return CardManager.AllCardsCopy.FindAll((a) =>
@@ -268,7 +379,7 @@ namespace Tribal_Pelts
             {
                 CardInfo info = CreateCard("Boo Pelt", "Boo Pelt.png", "Boo Pelt_e.png", 0, 2, MushroomTribes.MushroomTribes.booTribe);
 
-                PeltManager.New(PeltLoader.PluginGuid, info, 5, 0, 4,
+                PeltManager.New(PeltLoader.PluginGuid, info, 6, 0, 4,
                     () =>
                     {
                         return CardManager.AllCardsCopy.FindAll((a) =>
@@ -294,7 +405,7 @@ namespace Tribal_Pelts
             {
                 CardInfo info = CreateCard("Chain Chomp Pelt", "Chain Chomp Pelt.png", "Chain Chomp Pelt_e.png", 0, 2, MushroomTribes.MushroomTribes.chompTribe);
 
-                PeltManager.New(PeltLoader.PluginGuid, info, 5, 0, 4,
+                PeltManager.New(PeltLoader.PluginGuid, info, 6, 0, 4,
                     () =>
                     {
                         return CardManager.AllCardsCopy.FindAll((a) =>
@@ -307,7 +418,7 @@ namespace Tribal_Pelts
             {
                 CardInfo info = CreateCard("Cheep-Cheep Pelt", "Cheep-Cheep Pelt.png", "Cheep-Cheep Pelt_e.png", 0, 2, MushroomTribes.MushroomTribes.cheepCheepTribe);
 
-                PeltManager.New(PeltLoader.PluginGuid, info, 5, 0, 4,
+                PeltManager.New(PeltLoader.PluginGuid, info, 6, 0, 4,
                     () =>
                     {
                         return CardManager.AllCardsCopy.FindAll((a) =>
@@ -320,7 +431,7 @@ namespace Tribal_Pelts
             {
                 CardInfo info = CreateCard("Conkdor Pelt", "Conkdor Pelt.png", "Conkdor Pelt_e.png", 0, 2, MushroomTribes.MushroomTribes.conkdorTribe);
 
-                PeltManager.New(PeltLoader.PluginGuid, info, 5, 0, 4,
+                PeltManager.New(PeltLoader.PluginGuid, info, 6, 0, 4,
                     () =>
                     {
                         return CardManager.AllCardsCopy.FindAll((a) =>
@@ -333,7 +444,7 @@ namespace Tribal_Pelts
             {
                 CardInfo info = CreateCard("Dragon Pelt", "Dragon Pelt.png", "Dragon Pelt_e.png", 0, 2, MushroomTribes.MushroomTribes.dinosaurTribe);
 
-                PeltManager.New(PeltLoader.PluginGuid, info, 5, 0, 4,
+                PeltManager.New(PeltLoader.PluginGuid, info, 6, 0, 4,
                     () =>
                     {
                         return CardManager.AllCardsCopy.FindAll((a) =>
@@ -346,7 +457,7 @@ namespace Tribal_Pelts
             {
                 CardInfo info = CreateCard("Dry Bones Pelt", "Dry Bones Pelt.png", "Dry Bones Pelt_e.png", 0, 2, MushroomTribes.MushroomTribes.skeletonTribe);
 
-                PeltManager.New(PeltLoader.PluginGuid, info, 5, 0, 4,
+                PeltManager.New(PeltLoader.PluginGuid, info, 6, 0, 4,
                     () =>
                     {
                         return CardManager.AllCardsCopy.FindAll((a) =>
@@ -372,7 +483,7 @@ namespace Tribal_Pelts
             {
                 CardInfo info = CreateCard("Goomba Pelt", "Goomba Pelt.png", "Goomba Pelt_e.png", 0, 2, MushroomTribes.MushroomTribes.goombaTribe);
 
-                PeltManager.New(PeltLoader.PluginGuid, info, 5, 0, 4,
+                PeltManager.New(PeltLoader.PluginGuid, info, 6, 0, 4,
                     () =>
                     {
                         return CardManager.AllCardsCopy.FindAll((a) =>
@@ -385,7 +496,7 @@ namespace Tribal_Pelts
             {
                 CardInfo info = CreateCard("Koopa Pelt", "Koopa Pelt.png", "Koopa Pelt_e.png", 0, 2, MushroomTribes.MushroomTribes.koopaTribe);
 
-                PeltManager.New(PeltLoader.PluginGuid, info, 5, 0, 4,
+                PeltManager.New(PeltLoader.PluginGuid, info, 6, 0, 4,
                     () =>
                     {
                         return CardManager.AllCardsCopy.FindAll((a) =>
@@ -398,7 +509,7 @@ namespace Tribal_Pelts
             {
                 CardInfo info = CreateCard("Piranha Plant Pelt", "Piranha Pelt.png", "Piranha Pelt_e.png", 0, 2, MushroomTribes.MushroomTribes.piranhaPlantTribe);
 
-                PeltManager.New(PeltLoader.PluginGuid, info, 5, 0, 4,
+                PeltManager.New(PeltLoader.PluginGuid, info, 6, 0, 4,
                     () =>
                     {
                         return CardManager.AllCardsCopy.FindAll((a) =>
@@ -411,7 +522,7 @@ namespace Tribal_Pelts
             {
                 CardInfo info = CreateCard("Pokey Pelt", "Pokey Pelt.png", "Pokey Pelt_e.png", 0, 2, MushroomTribes.MushroomTribes.pokeyTribe);
 
-                PeltManager.New(PeltLoader.PluginGuid, info, 5, 0, 4,
+                PeltManager.New(PeltLoader.PluginGuid, info, 6, 0, 4,
                     () =>
                     {
                         return CardManager.AllCardsCopy.FindAll((a) =>
@@ -424,7 +535,7 @@ namespace Tribal_Pelts
             {
                 CardInfo info = CreateCard("Power-Up Pelt", "Power-Up Pelt.png", "Power-Up Pelt_e.png", 0, 2, MushroomTribes.MushroomTribes.powerUpTribe);
 
-                PeltManager.New(PeltLoader.PluginGuid, info, 5, 0, 4,
+                PeltManager.New(PeltLoader.PluginGuid, info, 6, 0, 4,
                     () =>
                     {
                         return CardManager.AllCardsCopy.FindAll((a) =>
@@ -437,7 +548,7 @@ namespace Tribal_Pelts
             {
                 CardInfo info = CreateCard("Ram Pelt", "Ram Pelt.png", "Ram Pelt_e.png", 0, 2, MushroomTribes.MushroomTribes.ramTribe);
 
-                PeltManager.New(PeltLoader.PluginGuid, info, 5, 0, 4,
+                PeltManager.New(PeltLoader.PluginGuid, info, 6, 0, 4,
                     () =>
                     {
                         return CardManager.AllCardsCopy.FindAll((a) =>
@@ -450,7 +561,7 @@ namespace Tribal_Pelts
             {
                 CardInfo info = CreateCard("Shroob Pelt", "Shroob Pelt.png", "Shroob Pelt_e.png", 0, 2, MushroomTribes.MushroomTribes.shroobTribe);
 
-                PeltManager.New(PeltLoader.PluginGuid, info, 5, 0, 4,
+                PeltManager.New(PeltLoader.PluginGuid, info, 6, 0, 4,
                     () =>
                     {
                         return CardManager.AllCardsCopy.FindAll((a) =>
@@ -463,7 +574,7 @@ namespace Tribal_Pelts
             {
                 CardInfo info = CreateCard("Shy Guy Pelt", "Shy Guy Pelt.png", "Shy Guy Pelt_e.png", 0, 2, MushroomTribes.MushroomTribes.shyGuyTribe);
 
-                PeltManager.New(PeltLoader.PluginGuid, info, 5, 0, 4,
+                PeltManager.New(PeltLoader.PluginGuid, info, 6, 0, 4,
                     () =>
                     {
                         return CardManager.AllCardsCopy.FindAll((a) =>
@@ -489,7 +600,7 @@ namespace Tribal_Pelts
             {
                 CardInfo info = CreateCard("Spike Pelt", "Spike Pelt.png", "Spike Pelt_e.png", 0, 2, MushroomTribes.MushroomTribes.spikeTribe);
 
-                PeltManager.New(PeltLoader.PluginGuid, info, 5, 0, 4,
+                PeltManager.New(PeltLoader.PluginGuid, info, 6, 0, 4,
                     () =>
                     {
                         return CardManager.AllCardsCopy.FindAll((a) =>
@@ -502,7 +613,7 @@ namespace Tribal_Pelts
             {
                 CardInfo info = CreateCard("Star Pelt", "Star Pelt.png", "Star Pelt_e.png", 0, 2, MushroomTribes.MushroomTribes.starTribe);
 
-                PeltManager.New(PeltLoader.PluginGuid, info, 5, 0, 4,
+                PeltManager.New(PeltLoader.PluginGuid, info, 6, 0, 4,
                     () =>
                     {
                         return CardManager.AllCardsCopy.FindAll((a) =>
@@ -515,7 +626,7 @@ namespace Tribal_Pelts
             {
                 CardInfo info = CreateCard("Tanuki Pelt", "Tanuki Pelt.png", "Tanuki Pelt_e.png", 0, 2, MushroomTribes.MushroomTribes.tanukiTribe);
 
-                PeltManager.New(PeltLoader.PluginGuid, info, 5, 0, 4,
+                PeltManager.New(PeltLoader.PluginGuid, info, 6, 0, 4,
                     () =>
                     {
                         return CardManager.AllCardsCopy.FindAll((a) =>
@@ -528,7 +639,7 @@ namespace Tribal_Pelts
             {
                 CardInfo info = CreateCard("Thwomp Pelt", "Thwomp Pelt.png", "Thwomp Pelt_e.png", 0, 2, MushroomTribes.MushroomTribes.crusherTribe);
 
-                PeltManager.New(PeltLoader.PluginGuid, info, 5, 0, 4,
+                PeltManager.New(PeltLoader.PluginGuid, info, 6, 0, 4,
                     () =>
                     {
                         return CardManager.AllCardsCopy.FindAll((a) =>
@@ -541,7 +652,7 @@ namespace Tribal_Pelts
             {
                 CardInfo info = CreateCard("Waddlewing Pelt", "Waddlewing Pelt.png", "Waddlewing Pelt_e.png", 0, 2, MushroomTribes.MushroomTribes.waddlewingTribe);
 
-                PeltManager.New(PeltLoader.PluginGuid, info, 5, 0, 4,
+                PeltManager.New(PeltLoader.PluginGuid, info, 6, 0, 4,
                     () =>
                     {
                         return CardManager.AllCardsCopy.FindAll((a) =>
@@ -554,7 +665,7 @@ namespace Tribal_Pelts
             {
                 CardInfo info = CreateCard("Wiggler Pelt", "Wiggler Pelt.png", "Wiggler Pelt_e.png", 0, 2, MushroomTribes.MushroomTribes.wrigglerTribe);
 
-                PeltManager.New(PeltLoader.PluginGuid, info, 5, 0, 4,
+                PeltManager.New(PeltLoader.PluginGuid, info, 6, 0, 4,
                     () =>
                     {
                         return CardManager.AllCardsCopy.FindAll((a) =>

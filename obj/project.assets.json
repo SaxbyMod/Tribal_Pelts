@@ -2883,7 +2883,7 @@
     "C:\\Users\\Thinc\\.nuget\\packages\\": {}
   },
   "project": {
-    "version": "2.0.0",
+    "version": "2.1.0",
     "restore": {
       "projectUniqueName": "C:\\Users\\Thinc\\source\\repos\\Tribal_Pelts\\Tribal Pelts.csproj",
       "projectName": "TribalPelts",
@@ -2964,7 +2964,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
