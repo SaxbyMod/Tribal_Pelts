@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>TribalPelts</AssemblyName>
     <Description>A Libary of TribalPelts</Description>
-    <Version>2.1.0</Version>
+    <Version>2.2.0</Version>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>Latest</LangVersion>
   </PropertyGroup>

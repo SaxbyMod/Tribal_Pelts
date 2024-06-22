@@ -7,7 +7,7 @@
   "targets": {
     ".NETStandard,Version=v2.0": {},
     ".NETStandard,Version=v2.0/": {
-      "TribalPelts/1.0.0": {
+      "TribalPelts/2.1.0": {
         "dependencies": {
           "BepInEx-MonoMod_Loader_Inscryption": "1.0.0",
           "BepInEx.Analyzers": "1.0.8",
@@ -21,6 +21,7 @@
           "InscryptionAPI": "2.18.7.0",
           "InscryptionCommunityPatch": "2.11.0.0",
           "JSONLoader": "2.0.0.0",
+          "MushroomTribes": "1.0.0.0",
           "NevernamedsSigils": "1.0.0.0",
           "VerminTribe": "1.0.0.0",
           "WhistleWind.AbnormalSigils": "1.0.2.0",
@@ -472,6 +473,14 @@
           }
         }
       },
+      "MushroomTribes/1.0.0.0": {
+        "runtime": {
+          "MushroomTribes.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "NevernamedsSigils/1.0.0.0": {
         "runtime": {
           "NevernamedsSigils.dll": {
@@ -507,7 +516,7 @@
     }
   },
   "libraries": {
-    "TribalPelts/1.0.0": {
+    "TribalPelts/2.1.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -820,6 +829,11 @@
       "sha512": ""
     },
     "JSONLoader/2.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MushroomTribes/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

@@ -7,7 +7,7 @@
   "targets": {
     ".NETStandard,Version=v2.0": {},
     ".NETStandard,Version=v2.0/": {
-      "TribalPelts/2.1.0": {
+      "TribalPelts/2.2.0": {
         "dependencies": {
           "BepInEx-MonoMod_Loader_Inscryption": "1.0.0",
           "BepInEx.Analyzers": "1.0.8",
@@ -516,7 +516,7 @@
     }
   },
   "libraries": {
-    "TribalPelts/2.1.0": {
+    "TribalPelts/2.2.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
