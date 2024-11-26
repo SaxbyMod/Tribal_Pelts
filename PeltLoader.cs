@@ -5,6 +5,7 @@ using InscryptionAPI.Card;
 using InscryptionAPI.Guid;
 using InscryptionAPI.Helpers;
 using InscryptionAPI.Pelts;
+using InscryptionAPI.Pelts.Extensions;
 using System.IO;
 
 namespace Tribal_Pelts
@@ -89,7 +90,7 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.IsOfTribe(Tribe.Bird) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
                     }
-                );
+                ).SetTierName("Raven Epidermises");
             }
             Count++;
             static void CaninePelt()
@@ -102,7 +103,7 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.IsOfTribe(Tribe.Canine) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
                     }
-                );
+                ).SetTierName("Coyote Pelts");
             }
             Count++;
             static void InsectPelt()
@@ -115,7 +116,7 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.IsOfTribe(Tribe.Insect) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
                     }
-                );
+                ).SetTierName("Moth Molts");
             }
             Count++;
             static void HoovedPelt()
@@ -128,7 +129,7 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.IsOfTribe(Tribe.Hooved) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
                     }
-                );
+                ).SetTierName("Deer Pelts");
             }
             Count++;
             static void TurtlePelt()
@@ -141,7 +142,7 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.IsOfTribe(Tribe.Reptile) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
                     }
-                );
+                ).SetTierName("Crocodile Hides");
             }
             Count++;
 
@@ -149,7 +150,7 @@ namespace Tribal_Pelts
             {
                 Logger.LogMessage("Do I see The other DLL? I do, I do see the other DLL! (Tribal Libary)");
             }
-            /*
+            /* Readd Later when its figured out how to do such.
             if (BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey(JGUID))
             {
                 Logger.LogMessage("Do I see The other DLL? I do, I do see the other DLL! (JSON Loader)");
@@ -212,7 +213,7 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.IsOfTribe(GetCustomTribe(LGUID, "undead")) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
                     }
-                );
+                ).SetTierName("Human Remains");
             }
             Count++;
             static void SharkLeather()
@@ -225,7 +226,7 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.IsOfTribe(GetCustomTribe(LGUID, "aquatic")) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
                     }
-                );
+                ).SetTierName("Shark Leather");
             }
             Count++;
             static void TigerPelt()
@@ -238,7 +239,7 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.IsOfTribe(GetCustomTribe(LGUID, "feline")) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
                     }
-                );
+                ).SetTierName("Tiger Pelts");
             }
             Count++;
             static void BeaverPelt()
@@ -251,58 +252,10 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.IsOfTribe(GetCustomTribe(LGUID, "rodent")) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
                     }
-                );
+                ).SetTierName("Beaver Pelts");
             }
             Count++;
         }
-        /*
-        public void LFTDTribes()
-        {
-            HumanRemainsLFTD();
-            SharkLeatherLFTD();
-            TigerPeltLFTD();
-
-            static void HumanRemainsLFTD()
-            {
-                CardInfo info = CreateCard("LFTD_Undead_Pelt", "Human Remains [LFTD]", "Human Remains.png", "None.png", 0, 2, GetCustomTribe("LFTD.tribe", "Undead"));
-
-                PeltManager.New(PeltLoader.PluginGuid, info, 6, 0, 4,
-                    () =>
-                    {
-                        return CardManager.AllCardsCopy.FindAll((a) =>
-                        a.IsOfTribe(GetCustomTribe("LFTD.tribe", "Undead")) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
-                    }
-                );
-            }
-            Count++;
-            static void SharkLeatherLFTD()
-            {
-                CardInfo info = CreateCard("LFTD_Shark_Pelt", "Shark Leather [LFTD]", "Shark Leather.png", "None.png", 0, 2, GetCustomTribe("LFTD.tribe", "Shark"));
-
-                PeltManager.New(PeltLoader.PluginGuid, info, 6, 0, 4,
-                    () =>
-                    {
-                        return CardManager.AllCardsCopy.FindAll((a) =>
-                        a.IsOfTribe(GetCustomTribe("LFTD.tribe", "Shark")) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
-                    }
-                );
-            }
-            Count++;
-            static void TigerPeltLFTD()
-            {
-                CardInfo info = CreateCard("LFTD_Feline_Pelt", "Tiger Pelt [LFTD]", "Tiger Pelt.png", "None.png", 0, 2, GetCustomTribe("LFTD.tribe", "Feline"));
-
-                PeltManager.New(PeltLoader.PluginGuid, info, 6, 0, 4,
-                    () =>
-                    {
-                        return CardManager.AllCardsCopy.FindAll((a) =>
-                        a.IsOfTribe(GetCustomTribe("LFTD.tribe", "Feline")) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
-                    }
-                );
-            }
-            Count++;
-        }
-        */
         public void MushroomTribesPelts()
         {
             BlasterPelt();
@@ -346,7 +299,7 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.IsOfTribe(MushroomTribes.MushroomTribes.blasterTribe) && (a.ModPrefixIs("Mushroom") || a.ModPrefixIs("Gallery")) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
                     }
-                );
+                ).SetTierName("Blaster Pelt");
             }
             Count++;
             static void BlockPelt()
@@ -359,7 +312,7 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.IsOfTribe(MushroomTribes.MushroomTribes.blockTribe) && (a.ModPrefixIs("Mushroom") || a.ModPrefixIs("Gallery")) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
                     }
-                );
+                ).SetTierName("Block Pelts");
             }
             Count++;
             static void BlooperPelt()
@@ -372,7 +325,7 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.IsOfTribe(MushroomTribes.MushroomTribes.blooperTribe) && (a.ModPrefixIs("Mushroom") || a.ModPrefixIs("Gallery")) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
                     }
-                );
+                ).SetTierName("Blooper Pelts");
             }
             Count++;
             static void BobOmbPelt()
@@ -385,7 +338,7 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.IsOfTribe(MushroomTribes.MushroomTribes.bombombTribe) && (a.ModPrefixIs("Mushroom") || a.ModPrefixIs("Gallery")) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
                     }
-                );
+                ).SetTierName("Bob-Omb Pelts");
             }
             Count++;
             static void BooPelt()
@@ -398,7 +351,7 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.IsOfTribe(MushroomTribes.MushroomTribes.booTribe) && (a.ModPrefixIs("Mushroom") || a.ModPrefixIs("Gallery")) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
                     }
-                );
+                ).SetTierName("Boo Pelts");
             }
             Count++;
             static void BronzePortrait()
@@ -411,7 +364,7 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.ModPrefixIs("Gallery") && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
                     }
-                );
+                ).SetTierName("Bronze Portraits");
             }
             Count++;
             static void ChainChompPelt()
@@ -424,7 +377,7 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.IsOfTribe(MushroomTribes.MushroomTribes.chompTribe) && (a.ModPrefixIs("Mushroom") || a.ModPrefixIs("Gallery")) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
                     }
-                );
+                ).SetTierName("Chain Chomp Pelts");
             }
             Count++;
             static void CheepCheepPelt()
@@ -437,7 +390,7 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.IsOfTribe(MushroomTribes.MushroomTribes.cheepCheepTribe) && (a.ModPrefixIs("Mushroom") || a.ModPrefixIs("Gallery")) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
                     }
-                );
+                ).SetTierName("Cheep Cheep Pelts");
             }
             Count++;
             static void ConkdorPelt()
@@ -450,7 +403,7 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.IsOfTribe(MushroomTribes.MushroomTribes.conkdorTribe) && (a.ModPrefixIs("Mushroom") || a.ModPrefixIs("Gallery")) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
                     }
-                );
+                ).SetTierName("Conkdor Pelts");
             }
             Count++;
             static void DragonPelt()
@@ -463,7 +416,7 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.IsOfTribe(MushroomTribes.MushroomTribes.dinosaurTribe) && (a.ModPrefixIs("Mushroom") || a.ModPrefixIs("Gallery")) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
                     }
-                );
+                ).SetTierName("Dragon Pelts");
             }
             Count++;
             static void DryBonesPelt()
@@ -476,7 +429,7 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.IsOfTribe(MushroomTribes.MushroomTribes.skeletonTribe) && (a.ModPrefixIs("Mushroom") || a.ModPrefixIs("Gallery")) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
                     }
-                );
+                ).SetTierName("Dry Bones Pelts");
             }
             Count++;
             static void GoldPortrait()
@@ -489,7 +442,7 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.ModPrefixIs("Gallery") && a.HasAnyOfCardMetaCategories(CardMetaCategory.Rare));
                     }
-                );
+                ).SetTierName("Gold Portraits");
             }
             Count++;
             static void GoombaPelt()
@@ -502,7 +455,7 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.IsOfTribe(MushroomTribes.MushroomTribes.goombaTribe) && (a.ModPrefixIs("Mushroom") || a.ModPrefixIs("Gallery")) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
                     }
-                );
+                ).SetTierName("Goomba Pelts");
             }
             Count++;
             static void KoopaPelt()
@@ -515,7 +468,7 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.IsOfTribe(MushroomTribes.MushroomTribes.koopaTribe) && (a.ModPrefixIs("Mushroom") || a.ModPrefixIs("Gallery")) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
                     }
-                );
+                ).SetTierName("Koopa Pelts");
             }
             Count++;
             static void PiranhaPelt()
@@ -528,7 +481,7 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.IsOfTribe(MushroomTribes.MushroomTribes.piranhaPlantTribe) && (a.ModPrefixIs("Mushroom") || a.ModPrefixIs("Gallery")) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
                     }
-                );
+                ).SetTierName("Piranha Pelts");
             }
             Count++;
             static void PokeyPelt()
@@ -541,7 +494,7 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.IsOfTribe(MushroomTribes.MushroomTribes.pokeyTribe) && (a.ModPrefixIs("Mushroom") || a.ModPrefixIs("Gallery")) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
                     }
-                );
+                ).SetTierName("Pokey Pelts");
             }
             Count++;
             static void PowerUpPelt()
@@ -554,7 +507,7 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.IsOfTribe(MushroomTribes.MushroomTribes.powerUpTribe) && (a.ModPrefixIs("Mushroom") || a.ModPrefixIs("Gallery")) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
                     }
-                );
+                ).SetTierName("Power Up Pelts");
             }
             Count++;
             static void RamPelt()
@@ -567,7 +520,7 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.IsOfTribe(MushroomTribes.MushroomTribes.ramTribe) && (a.ModPrefixIs("Mushroom") || a.ModPrefixIs("Gallery")) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
                     }
-                );
+                ).SetTierName("Ram Pelts");
             }
             Count++;
             static void ShroobPelt()
@@ -580,7 +533,7 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.IsOfTribe(MushroomTribes.MushroomTribes.shroobTribe) && (a.ModPrefixIs("Mushroom") || a.ModPrefixIs("Gallery")) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
                     }
-                );
+                ).SetTierName("Shroob Pelts");
             }
             Count++;
             static void ShyGuyPelt()
@@ -593,7 +546,7 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.IsOfTribe(MushroomTribes.MushroomTribes.shyGuyTribe) && (a.ModPrefixIs("Mushroom") || a.ModPrefixIs("Gallery")) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
                     }
-                );
+                ).SetTierName("Shy Guy Pelts");
             }
             Count++;
             static void SilverPortrait()
@@ -606,7 +559,7 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.ModPrefixIs("Gallery") && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
                     }
-                );
+                ).SetTierName("Silver Poraits");
             }
             Count++;
             static void SpikePelt()
@@ -619,7 +572,7 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.IsOfTribe(MushroomTribes.MushroomTribes.spikeTribe) && (a.ModPrefixIs("Mushroom") || a.ModPrefixIs("Gallery")) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
                     }
-                );
+                ).SetTierName("Spike Pelts");
             }
             Count++;
             static void StarPelt()
@@ -632,7 +585,7 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.IsOfTribe(MushroomTribes.MushroomTribes.starTribe) && (a.ModPrefixIs("Mushroom") || a.ModPrefixIs("Gallery")) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
                     }
-                );
+                ).SetTierName("Star Pelts");
             }
             Count++;
             static void TanukiPelt()
@@ -645,7 +598,7 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.IsOfTribe(MushroomTribes.MushroomTribes.tanukiTribe) && (a.ModPrefixIs("Mushroom") || a.ModPrefixIs("Gallery")) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
                     }
-                );
+                ).SetTierName("Takuni Pelts");
             }
             Count++;
             static void ThwompPelt()
@@ -658,7 +611,7 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.IsOfTribe(MushroomTribes.MushroomTribes.crusherTribe) && (a.ModPrefixIs("Mushroom") || a.ModPrefixIs("Gallery")) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
                     }
-                );
+                ).SetTierName("Thwomp Pelts");
             }
             Count++;
             static void WaddlewingPelt()
@@ -671,7 +624,7 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.IsOfTribe(MushroomTribes.MushroomTribes.waddlewingTribe) && (a.ModPrefixIs("Mushroom") || a.ModPrefixIs("Gallery")) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
                     }
-                );
+                ).SetTierName("Waddlewing Pelts");
             }
             Count++;
             static void WigglerPelt()
@@ -684,7 +637,7 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.IsOfTribe(MushroomTribes.MushroomTribes.wrigglerTribe) && (a.ModPrefixIs("Mushroom") || a.ModPrefixIs("Gallery")) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
                     }
-                );
+                ).SetTierName("Wiggler Pelts");
             }
             Count++;
             static void PowerMoon()
@@ -697,7 +650,7 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.ModPrefixIs("Mushroom") && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
                     }
-                );
+                ).SetTierName("Power Moons");
             }
             Count++;
             static void StarBits()
@@ -710,7 +663,7 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.ModPrefixIs("Mushroom") && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
                     }
-                );
+                ).SetTierName("Star Bits");
             }
             Count++;
             static void ShineSprite()
@@ -723,7 +676,7 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.ModPrefixIs("Mushroom") && a.HasAnyOfCardMetaCategories(CardMetaCategory.Rare));
                     }
-                );
+                ).SetTierName("Shine Sprites");
             }
             Count++;
         }
@@ -744,7 +697,7 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.IsOfTribe(GetCustomTribe(LGUID, "Rodent")) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
                     }
-                );
+                ).SetTierName("Beaver Pelts");
             }
             Count++;
             static void LobsterShell()
@@ -757,7 +710,7 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.IsOfTribe(GetCustomTribe(NGUID, "Crustacean")) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
                     }
-                );
+                ).SetTierName("Lobster Shells");
             }
             Count++;
             static void SpiderSkin()
@@ -770,7 +723,7 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.IsOfTribe(GetCustomTribe(NGUID, "Arachnid")) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
                     }
-                );
+                ).SetTierName("Spider Skins");
             }
             Count++;
         }
@@ -788,7 +741,7 @@ namespace Tribal_Pelts
                         return CardManager.AllCardsCopy.FindAll((a) =>
                         a.IsOfTribe(Tribe.Squirrel) && a.HasAnyOfCardMetaCategories(CardMetaCategory.ChoiceNode, CardMetaCategory.TraderOffer));
                     }
-                );
+                ).SetTierName("Beaver Pelts");
             }
             Count++;
         }
