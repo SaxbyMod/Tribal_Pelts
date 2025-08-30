@@ -7,7 +7,7 @@
   "targets": {
     ".NETStandard,Version=v2.0": {},
     ".NETStandard,Version=v2.0/": {
-      "TribalPelts/2.2.0": {
+      "TribalPelts/3.0.0": {
         "dependencies": {
           "BepInEx-MonoMod_Loader_Inscryption": "1.0.0",
           "BepInEx.Analyzers": "1.0.8",
@@ -16,16 +16,8 @@
           "Inscryption.GameLibs": "1.9.0-r.0",
           "NETStandard.Library": "2.0.3",
           "UnityEngine.Modules": "2019.4.24",
-          "ATribalLibary": "2.0.0.0",
-          "Bundle_Of_Totems": "1.0.0.0",
           "InscryptionAPI": "2.18.7.0",
-          "InscryptionCommunityPatch": "2.11.0.0",
-          "JSONLoader": "2.0.0.0",
-          "MushroomTribes": "1.0.0.0",
-          "NevernamedsSigils": "1.0.0.0",
-          "VerminTribe": "1.0.0.0",
-          "WhistleWind.AbnormalSigils": "1.0.2.0",
-          "ZephtPvZ": "1.0.0.0"
+          "InscryptionCommunityPatch": "2.11.0.0"
         },
         "runtime": {
           "TribalPelts.dll": {}
@@ -433,22 +425,6 @@
         }
       },
       "UnityEngine.Modules/2019.4.24": {},
-      "ATribalLibary/2.0.0.0": {
-        "runtime": {
-          "ATribalLibary.dll": {
-            "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.0.0.0"
-          }
-        }
-      },
-      "Bundle_Of_Totems/1.0.0.0": {
-        "runtime": {
-          "Bundle_Of_Totems.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
       "InscryptionAPI/2.18.7.0": {
         "runtime": {
           "InscryptionAPI.dll": {
@@ -464,59 +440,11 @@
             "fileVersion": "2.11.0.0"
           }
         }
-      },
-      "JSONLoader/2.0.0.0": {
-        "runtime": {
-          "JSONLoader.dll": {
-            "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.0.0.0"
-          }
-        }
-      },
-      "MushroomTribes/1.0.0.0": {
-        "runtime": {
-          "MushroomTribes.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
-      "NevernamedsSigils/1.0.0.0": {
-        "runtime": {
-          "NevernamedsSigils.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
-      "VerminTribe/1.0.0.0": {
-        "runtime": {
-          "VerminTribe.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
-      "WhistleWind.AbnormalSigils/1.0.2.0": {
-        "runtime": {
-          "WhistleWind.AbnormalSigils.dll": {
-            "assemblyVersion": "1.0.2.0",
-            "fileVersion": "1.0.2.0"
-          }
-        }
-      },
-      "ZephtPvZ/1.0.0.0": {
-        "runtime": {
-          "ZephtPvZ.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
       }
     }
   },
   "libraries": {
-    "TribalPelts/2.2.0": {
+    "TribalPelts/3.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -524,7 +452,7 @@
     "BepInEx-MonoMod_Loader_Inscryption/1.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-i+X7GRNnUhnJFelGhZ+ncFPutHUkmPBz4SqGofiCRBdMDt7i2zQnqEzByog7NixWGHv10zAs9PLCsG1YhdLu9w==",
+      "sha512": "sha512-sioDC1vOAzLM4ehYlt7TI9vbvmeKZdXz82cw1nSaYSJ3c/IX5leoWVSHujqRQrkYm3gmKLUXSQWMNbHr1zt90w==",
       "path": "bepinex-monomod_loader_inscryption/1.0.0",
       "hashPath": "bepinex-monomod_loader_inscryption.1.0.0.nupkg.sha512"
     },
@@ -808,52 +736,12 @@
       "path": "unityengine.modules/2019.4.24",
       "hashPath": "unityengine.modules.2019.4.24.nupkg.sha512"
     },
-    "ATribalLibary/2.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Bundle_Of_Totems/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
     "InscryptionAPI/2.18.7.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
     "InscryptionCommunityPatch/2.11.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "JSONLoader/2.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "MushroomTribes/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "NevernamedsSigils/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "VerminTribe/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "WhistleWind.AbnormalSigils/1.0.2.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "ZephtPvZ/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
